@@ -1,0 +1,88 @@
+.header {
+    background: #ffffff;
+}
+
+.header__inner {
+    margin: 0 4%;
+    padding: 20px 0px;
+}
+
+.header__logo {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.register-form__content {
+    background-color: rgb(244, 244, 244);
+}
+
+.register-form__content {
+    padding: 30px 15px 250px 15px;
+}
+
+.register-form__heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    width: 70%;
+    text-align: center;
+}
+
+.form__error {
+    height: 30px;
+    color: #ff0000;
+    text-align: left;
+    text-align: center;
+}
+
+.form-content--text input,
+.form-content--password input,
+.form-content--name input{
+    padding: 13px;
+    width: 380px;
+    border: 1px solid #505050;
+    border-radius: 5px;
+    appearance: none;
+    background-color: rgb(244, 244, 244);
+}
+
+.form_button {
+    margin-top: 30px;
+}
+
+.form__button-submit {
+    padding: 13px;
+    width: 380px;
+    border: none;
+    border-radius: 5px;
+    background: #2c3ce7;
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.footer {
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.form-info {
+    text-align: center;
+}
+
+.form-info--text {
+    margin-top: 30px;
+    color: rgb(173, 173, 173);
+    margin-bottom: 0px;
+}
+
+.form-info--link {
+    text-decoration: none;
+    color: #2c3ce7;
+}
