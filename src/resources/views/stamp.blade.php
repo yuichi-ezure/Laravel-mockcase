@@ -21,9 +21,9 @@
                     <li><a class="header__menu-list" href="/">ホーム</a></li>
                     <li><a class="header__menu-list" href="/attendance">日付一覧</a></li>
                     <li>
-                        <form action="/logout" method="post">
+                        <form action="/login" method="post">
                             @csrf
-                            <a class="header__menu-list" href="/logout">ログアウト</a></li>
+                            <button class="header__menu-list" >ログアウト</button></li>
                         </form>
                     @endif
                 </ul>

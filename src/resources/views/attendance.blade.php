@@ -23,7 +23,7 @@
                     <li>
                         <form class="form" action="/login" method="post">
                             @csrf
-                            <a class="header__menu-list" href="/login">ログアウト</a>
+                            <button class="header__menu-list">ログアウト</button>
                         </form>
                     </li>
                     @endif
