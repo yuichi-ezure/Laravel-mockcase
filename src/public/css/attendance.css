@@ -1,13 +1,14 @@
 .header {
     background: #ffffff;
-    
+
 }
+
 .header__inner {
     margin: 0 4%;
     padding: 20px 0px;
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 .header__logo {
@@ -28,58 +29,42 @@
     font-size: 18px;
     padding-left: 50px;
 }
+/*ここから中央部*/
 
-.register-form__content {
+.main-table {
     background-color: rgb(244, 244, 244);
-}
-
-.register-form__content {
-    padding: 30px 15px 250px 15px;
-}
-
-.register-form__heading {
-    margin-bottom: 40px;
     text-align: center;
+    
 }
 
-.form {
-    margin: 0 auto;
-    width: 70%;
-    text-align: center;
-}
-
-.form__error {
-    height: 30px;
-    color: #ff0000;
-    text-align: left;
-    text-align: center;
-}
-
-.form-content--text input,
-.form-content--password input,
-.form-content--name input {
-    padding: 13px;
-    width: 380px;
-    border: 1px solid #505050;
-    border-radius: 5px;
-    appearance: none;
-    background-color: rgb(244, 244, 244);
-}
-
-.form_button {
-    margin-top: 30px;
-}
-
-.form__button-submit {
-    padding: 13px;
-    width: 380px;
-    border: none;
-    border-radius: 5px;
-    background: #2c3ce7;
-    color: #fff;
-    cursor: pointer;
+.attendance-date {
+    padding: 10px;
     font-size: 15px;
 }
+
+.attendance-table__inner1 {
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+    
+}
+
+.attendance-table__inner2 {
+    font-size: 20px;
+    width: 100%;
+
+}
+
+.attendance-table__row1 {
+    
+}
+
+.attendance-table__item {
+    padding: 20px;
+    text-align: center;
+}
+
+/*ここまで中央部*/
 
 .footer {
     background: #ffffff;

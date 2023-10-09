@@ -18,8 +18,6 @@ use App\Http\Controllers\RegisteredUserController;
 |
 */
 
-Route::post('/', [StampController::class, 'destroy']);
-Route::get('/', [StampController::class, 'index']);
 Route::middleware('auth')->group(function () {
     Route::get('/', [StampController::class, 'index']);
 });

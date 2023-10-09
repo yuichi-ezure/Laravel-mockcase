@@ -12,33 +12,42 @@
 <body>
     <header class="header">
         <div class="header__inner">
-            <a class="header__logo" href="">
+            <a class="header__logo" href="login">
             Atte
             </a>
             <nav>
                 <ul class="header__menu">
-                    @if (Auth::check())
                     <li><a class="header__menu-list" href="/">ホーム</a></li>
                     <li><a class="header__menu-list" href="/attendance">日付一覧</a></li>
-                    <li>
-                        <form class="form" action="/login" method="post">
-                            @csrf
-                            <button class="header__menu-list">ログアウト</button>
-                        </form>
-                    </li>
-                    @endif
+                    <li><a class="header__menu-list" href="{{ route('logout') }}">ログアウト</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-<main>
-    <div class="attendance-table">
-        <table class="attendance-table__inner">
-            <tr class="attendance-table__row">
-                <td class="attendance-table__item">サンプル太郎</td>
-                <td class="attendance-table__item">サンプル</td>
-                <td class="attendance-table__item">サンプル</td>
+<main class="main-table">
+    <div class="attendance-date">
+        <h1>{{ date('y-m-d', ) }}</h1>
+    </div>
+    <div class="attendance-table1">
+        <table class="attendance-table__inner1">
+            <tr class="attendance-table__row1">
+                <th class="attendance-table__item">名前</th>
+                <th class="attendance-table__item">勤務開始</th>
+                <th class="attendance-table__item">勤務終了</th>
+                <th class="attendance-table__item">休憩時間</th>
+                <th class="attendance-table__item">勤務時間</th>
             </tr>
+        </table>
+    </div>
+    <div class="attendance-table2">
+        <table class="attendance-table__inner2">
+            @foreach ($attendances as $attendance)
+            <tr class="attendance-table__row2">
+                <td class="attendance-table__item">{{ $attendance->user->name }}</td>
+                <td class="attendance-table__item">{{ $attendance->clock_in }}</td>
+                <td class="attendance-table__item">{{ $attendance->clock_out }}</td>
+            </tr>
+            @endforeach
         </table>
     </div>
 </main>
