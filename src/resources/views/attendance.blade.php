@@ -44,11 +44,26 @@
             @foreach ($attendances as $attendance)
             <tr class="attendance-table__row2">
                 <td class="attendance-table__item">{{ $attendance->user->name }}</td>
-                <td class="attendance-table__item">{{ $attendance->clock_in }}</td>
-                <td class="attendance-table__item">{{ $attendance->clock_out }}</td>
+                <td class="attendance-table__item">{{ \Carbon\Carbon::parse($attendance->clock_in)->format('H:i:s') }}</td>
+                <td class="attendance-table__item">{{ \Carbon\Carbon::parse($attendance->clock_out)->format('H:i:s') }}</td>
+                <td class="attendance-table__item">
+                @php
+                $totalBreak = 0;
+                foreach ($attendance->rests as $rest) {
+                $totalBreak += \Carbon\Carbon::parse($rest->break_end)->diffInSeconds(\Carbon\Carbon::parse($rest->break_start));
+                }
+                echo gmdate('H:i:s', $totalBreak);
+                @endphp
+                </td>
+                <td class="attendance-table__item">
+                {{ $attendance->clock_out->diff($attendance->clock_in)->format('%H:%I:%S') }}
+                </td>
             </tr>
             @endforeach
         </table>
+    </div>
+    <div class="pagination">
+        {{ $attendances->links() }}
     </div>
 </main>
 <footer class="footer">

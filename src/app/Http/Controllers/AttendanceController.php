@@ -40,7 +40,7 @@ class AttendanceController extends Controller
 
     public function showAttendance()
     {
-        $attendances = Attendance::with('user')->get();
+        $attendances = Attendance::with('user')->paginate(5);
         return view('attendance', ['attendances' => $attendances]);
     }
 
