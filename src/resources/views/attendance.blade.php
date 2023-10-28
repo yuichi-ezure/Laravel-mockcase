@@ -8,6 +8,8 @@
   <title>Attendance Form</title>
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
   <link rel="stylesheet" href="{{ asset('css/attendance.css') }}" />
+  <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+  <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body>
     <header class="header">
@@ -26,7 +28,7 @@
     </header>
 <main class="main-table">
     <div class="attendance-date">
-        <h1>{{ date('y-m-d', ) }}</h1>
+        <h1>yyyy-mm-dd</h1>
     </div>
     <div class="attendance-table1">
         <table class="attendance-table__inner1">

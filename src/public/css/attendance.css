@@ -46,7 +46,6 @@
     font-weight: bold;
     font-size: 20px;
     width: 100%;
-    
 }
 
 .attendance-table__inner2 {
@@ -55,9 +54,7 @@
 
 }
 
-.attendance-table__row1 {
-    
-}
+
 
 .attendance-table__item {
     padding: 20px;
@@ -66,9 +63,7 @@
 
 /*ページネーション*/
 
-.pagination {
 
-}
 
 /*ここまで中央部*/
 

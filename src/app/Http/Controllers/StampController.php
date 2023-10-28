@@ -41,25 +41,63 @@ class StampController extends Controller
     }
 
     public function clockOut()
-    {
-        $attendance = Attendance::where('user_id', Auth::id())->whereNull('clock_out')->latest()->first();
+{
+    $attendance = Attendance::where('user_id', Auth::id())->whereNull('clock_out')->latest()->first();
 
-        if ($attendance) {
+    if (!$attendance) {
+        // clock_inが開始されていない場合はエラーメッセージを表示してリダイレクト
+        return redirect('/')->with('error', '勤務が開始されていません！');
+    }
+
+    if ($attendance) {
+        $latestRest = $attendance->rests()->latest()->first();
+
+        if (!$latestRest || $latestRest->break_end) {
+            // 休憩が終了しているか、休憩レコードが存在しない場合にのみ勤怠終了を行う
+            $attendance->clock_out = now();
+            $attendance->save();
+        }
+    }
+
+    return redirect('/');
+}
+
+    public function autoClockOut()
+    {
+        $attendances = Attendance::whereNull('clock_out')->get();
+
+        foreach ($attendances as $attendance) {
+            $attendance->clock_out = now()->setTime(00, 00, 00);
+            $attendance->save();
+
+            // Check if the user is on break
             $latestRest = $attendance->rests()->latest()->first();
 
-            if (!$latestRest || $latestRest->break_end) {
-                // 休憩が終了しているか、休憩レコードが存在しない場合にのみ勤怠終了を行う
-                $attendance->clock_out = now();
-                $attendance->save();
+            if ($latestRest && is_null($latestRest->break_end)) {
+                // If the user is on break, end the break
+                $latestRest->break_end = now()->setTime(00, 00, 00);
+                $latestRest->save();
+
+                // Start a new break
+                $newRest = new Rest;
+                $newRest->attendance_id = $attendance->id;
+                $newRest->break_start = now()->addSecond();
+                $newRest->save();
+            }
+
+            // Check if a new attendance has already been started
+            $newAttendance = Attendance::where('user_id', $attendance->user_id)
+                ->whereDate('clock_in', now()->addSecond())
+                ->first();
+
+            // If no new attendance has been started, start a new one
+            if (!$newAttendance) {
+                $newAttendance = new Attendance;
+                $newAttendance->user_id = $attendance->user_id;
+                $newAttendance->clock_in = now()->addSecond();
+                $newAttendance->save();
             }
         }
-
-        // 0時になったときに勤務終了し、翌日の勤務を開始する
-        if (now()->hour == 0) {
-            $this->clockIn();
-        }
-
-        return redirect('/');
     }
 
     //休憩管理

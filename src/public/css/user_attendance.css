@@ -1,0 +1,90 @@
+.header {
+    background: #ffffff;
+
+}
+
+.header__inner {
+    margin: 0 4%;
+    padding: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.header__logo {
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 35px;
+}
+
+.header__menu {
+    display: flex;
+    list-style: none;
+}
+
+.header__menu-list {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    padding-left: 50px;
+}
+
+/*ここから中央部*/
+
+.main-table {
+    background-color: rgb(244, 244, 244);
+    text-align: center;
+
+}
+
+.attendance-date {
+    padding: 10px;
+    font-size: 15px;
+}
+
+.attendance-table__inner1 {
+    font-weight: bold;
+    font-size: 20px;
+    width: 100%;
+}
+
+.attendance-table__inner2 {
+    font-size: 20px;
+    width: 100%;
+
+}
+
+
+
+.attendance-table__item {
+    padding: 20px;
+    text-align: center;
+}
+
+/*ページネーション*/
+
+
+
+/*ここまで中央部*/
+
+.footer {
+    background: #ffffff;
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.form-info {
+    text-align: center;
+}
+
+.form-info--text {
+    margin-top: 30px;
+    color: rgb(173, 173, 173);
+    margin-bottom: 0px;
+}
+
+.form-info--link {
+    text-decoration: none;
+    color: #2c3ce7;
+}

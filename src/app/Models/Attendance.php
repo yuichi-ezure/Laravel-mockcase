@@ -23,4 +23,10 @@ class Attendance extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function scopeFilterByUser($query, $userId)
+    {
+        return $query->where('user_id', $userId);
+    }
+
 }
