@@ -7,5 +7,6 @@
 ＃使用技術：Laravel　8.*
 ＃テーブル設計:案件シート参照
 ＃ER図：案件シート参照
-＃環境構築：-
+＃環境構築：AWS EC2 Amazon Linux  RDS MySQL Community
 ＃他記載事項：-
+＃
